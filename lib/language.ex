@@ -1,6 +1,7 @@
 defmodule Language do
   @language_to_filename %{
-    :en => "en.txt"
+    :en => "en.txt",
+    :dk => "dk.txt"
   }
 
   def read_dictionaries(language) do

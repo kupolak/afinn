@@ -5,6 +5,7 @@ The library is highly influenced by other `afinn` implementations.
 
 Dictionaries included:
 * English Language 🇬🇧
+* Danish Language 🇩🇰
 
 ## Table of contents
 
@@ -23,12 +24,18 @@ by adding `afinn` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:afinn, "~> 0.2.0"}
+    {:afinn, "~> 0.2.1"}
   ]
 end
 ```
 
 ## Usage
+The following languages are currently supported:
+
+| Language | Symbol |
+|----------|--------|
+| English  | :en    |
+| Danish   | :dk    |
 
 ```elixir
 text = 'I love this!'
@@ -38,6 +45,9 @@ Afinn.score(text, :en)
 
 Afinn.score_to_words(text, :en)
 #=> :positive
+
+Afinn.score("Dårligt produkt!", :dk)
+#=> -3
 ```
 
 ## Dictionaries

@@ -4,7 +4,7 @@ defmodule Afinn.MixProject do
   def project do
     [
       app: :afinn,
-      version: "0.2.0",
+      version: "0.2.1",
       elixir: "~> 1.0",
       start_permanent: Mix.env() == :prod,
       description: description(),
@@ -26,7 +26,7 @@ defmodule Afinn.MixProject do
   end
 
   defp description() do
-    "Sentiment analysis in Elixir. Languages supported: English"
+    "Sentiment analysis in Elixir. Languages supported: English, Danish"
   end
 
   defp package() do
