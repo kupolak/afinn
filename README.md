@@ -23,7 +23,7 @@ by adding `afinn` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:afinn, "~> 0.1.0"}
+    {:afinn, "~> 0.2.0"}
   ]
 end
 ```
@@ -33,10 +33,10 @@ end
 ```elixir
 text = 'I love this!'
 
-Afinn.score(text)
+Afinn.score(text, :en)
 #=> 3
 
-Afinn.score_to_words(text)
+Afinn.score_to_words(text, :en)
 #=> :positive
 ```
 
