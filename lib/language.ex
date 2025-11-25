@@ -8,7 +8,13 @@ defmodule Language do
 
   @language_to_filename %{
     :en => "en.txt",
-    :dk => "dk.txt"
+    :dk => "dk.txt",
+    :fi => "fi.txt",
+    :fr => "fr.txt",
+    :pl => "pl.txt",
+    :sv => "sv.txt",
+    :tr => "tr.txt",
+    :emoticon => "emoticon.txt"
   }
 
   @doc """
@@ -16,7 +22,7 @@ defmodule Language do
 
   ## Parameters
 
-    - `language` - Language identifier (`:en` for English, `:dk` for Danish)
+    - `language` - Language identifier (`:en` for English, `:dk` for Danish, `:fi` for Finnish, `:fr` for French, `:pl` for Polish, `:sv` for Swedish, `:tr` for Turkish, `:emoticon` for Emoticons)
 
   ## Returns
 
@@ -28,7 +34,7 @@ defmodule Language do
       iex> Map.get(dict, "love")
       3
   """
-  @spec read_dictionaries(:en | :dk) :: %{String.t() => integer()}
+  @spec read_dictionaries(:en | :dk | :fi | :fr | :pl | :sv | :tr | :emoticon) :: %{String.t() => integer()}
   def read_dictionaries(language) do
     filename = find_filename(language)
     read_word_file(filename)
@@ -42,8 +48,16 @@ defmodule Language do
   defp read_word_file(file) do
     {:ok, contents} = File.read(file)
 
-    String.split(contents)
-    |> Enum.chunk_every(2)
-    |> Map.new(fn [k, v] -> {k, String.to_integer(v)} end)
+    contents
+    |> String.split("\n", trim: true)
+    |> Enum.map(fn line ->
+      # Split by any whitespace (tab or multiple spaces) to separate word/phrase from score
+      # Use regex to split on one or more whitespace chars from the end
+      parts = Regex.split(~r/\s+/, String.trim(line))
+      {score, word_parts} = List.pop_at(parts, -1)
+      word = Enum.join(word_parts, " ")
+      {word, String.to_integer(score)}
+    end)
+    |> Map.new()
   end
 end

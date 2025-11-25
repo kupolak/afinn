@@ -9,6 +9,12 @@ defmodule Afinn do
 
   - English (`:en`)
   - Danish (`:dk`)
+  - Finnish (`:fi`)
+  - French (`:fr`)
+  - Polish (`:pl`)
+  - Swedish (`:sv`)
+  - Turkish (`:tr`)
+  - Emoticons (`:emoticon`)
 
   ## Examples
 
@@ -36,7 +42,7 @@ defmodule Afinn do
   ## Parameters
 
     - `text` - The text to analyze (String)
-    - `language` - Language identifier (`:en` for English, `:dk` for Danish)
+    - `language` - Language identifier (`:en` for English, `:dk` for Danish, `:fi` for Finnish, `:fr` for French, `:pl` for Polish, `:sv` for Swedish, `:tr` for Turkish, `:emoticon` for Emoticons)
 
   ## Returns
 
@@ -54,7 +60,7 @@ defmodule Afinn do
       iex> Afinn.score("Hello world", :en)
       0
   """
-  @spec score(String.t(), :en | :dk) :: integer()
+  @spec score(String.t(), :en | :dk | :fi | :fr | :pl | :sv | :tr | :emoticon) :: integer()
   def score(text, language) do
     dictionary = read_dictionaries(language)
 
@@ -74,7 +80,7 @@ defmodule Afinn do
   ## Parameters
 
     - `text` - The text to analyze (String)
-    - `language` - Language identifier (`:en` for English, `:dk` for Danish)
+    - `language` - Language identifier (`:en` for English, `:dk` for Danish, `:fi` for Finnish, `:fr` for French, `:pl` for Polish, `:sv` for Swedish, `:tr` for Turkish, `:emoticon` for Emoticons)
 
   ## Returns
 
@@ -94,7 +100,7 @@ defmodule Afinn do
       iex> Afinn.score_to_words("This is okay", :en)
       :neutral
   """
-  @spec score_to_words(String.t(), :en | :dk) :: :positive | :negative | :neutral
+  @spec score_to_words(String.t(), :en | :dk | :fi | :fr | :pl | :sv | :tr | :emoticon) :: :positive | :negative | :neutral
   def score_to_words(text, language) do
     score = score(text, language)
 
