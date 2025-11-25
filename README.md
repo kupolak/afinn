@@ -11,7 +11,7 @@ The library is highly influenced by other `afinn` implementations and uses the w
 ## Features
 
 - 🚀 **Fast and lightweight** - Minimal dependencies, optimized for performance
-- 🌍 **Multi-language support** - English 🇬🇧 and Danish 🇩🇰
+- 🌍 **Multi-language support** - English 🇬🇧, Danish 🇩🇰, Finnish 🇫🇮, French 🇫🇷, Polish 🇵🇱, Swedish 🇸🇪, Turkish 🇹🇷, and Emoticons 😊
 - 📊 **Numeric scoring** - Get sentiment scores from -5 (very negative) to +5 (very positive)
 - 📝 **Word classification** - Convert scores to human-readable categories (positive, negative, neutral)
 - 🔧 **Simple API** - Easy to integrate into any Elixir project
@@ -33,7 +33,7 @@ by adding `afinn` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:afinn, "~> 0.2.1"}
+    {:afinn, "~> 0.3.0"}
   ]
 end
 ```
@@ -42,10 +42,16 @@ end
 
 ### Supported Languages
 
-| Language | Symbol | Dictionary Size |
-|----------|--------|-----------------|
-| English  | `:en`  | 2,477 words     |
-| Danish   | `:dk`  | 3,693 words     |
+| Language   | Symbol      | Dictionary Size |
+|------------|-------------|-----------------|
+| English    | `:en`       | 1,677 words     |
+| Danish     | `:dk`       | 1,763 words     |
+| Finnish    | `:fi`       | 1,288 words     |
+| French     | `:fr`       | 1,096 words     |
+| Polish     | `:pl`       | 2,203 words     |
+| Swedish    | `:sv`       | 1,685 words     |
+| Turkish    | `:tr`       | 1,691 words     |
+| Emoticons  | `:emoticon` | 48 emoticons    |
 
 ### Basic Examples
 
@@ -65,6 +71,30 @@ Afinn.score("Dårligt produkt!", :dk)
 
 Afinn.score_to_words("Dårligt produkt!", :dk)
 #=> :negative
+
+# Finnish sentiment analysis
+Afinn.score("Rakastan tätä!", :fi)
+#=> 5
+
+# French sentiment analysis
+Afinn.score("adorer ce produit", :fr)
+#=> 3
+
+# Polish sentiment analysis
+Afinn.score("To jest wspaniałe!", :pl)
+#=> 5
+
+# Swedish sentiment analysis
+Afinn.score("Jag älskar det här!", :sv)
+#=> 3
+
+# Turkish sentiment analysis
+Afinn.score("güzel harika", :tr)
+#=> 6
+
+# Emoticon sentiment analysis
+Afinn.score("I love this product :) :D", :emoticon)
+#=> 5
 ```
 
 ### Advanced Usage
