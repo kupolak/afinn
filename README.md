@@ -33,7 +33,7 @@ by adding `afinn` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:afinn, "~> 0.2.1"}
+    {:afinn, "~> 0.3.0"}
   ]
 end
 ```

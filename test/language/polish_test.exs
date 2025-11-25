@@ -49,8 +49,7 @@ defmodule PolishTest do
     assert Afinn.score_to_words(text, :pl) == :negative
 
     # Realistic negative review
-    text =
-      "zły produkt. okropna obsługa i zła jakość. nie polecam. złe doświadczenie. huono."
+    text = "zły produkt. okropna obsługa i zła jakość. nie polecam. złe doświadczenie. huono."
 
     assert Afinn.score(text, :pl) < 0
     assert Afinn.score_to_words(text, :pl) == :negative

@@ -34,7 +34,9 @@ defmodule Language do
       iex> Map.get(dict, "love")
       3
   """
-  @spec read_dictionaries(:en | :dk | :fi | :fr | :pl | :sv | :tr | :emoticon) :: %{String.t() => integer()}
+  @spec read_dictionaries(:en | :dk | :fi | :fr | :pl | :sv | :tr | :emoticon) :: %{
+          String.t() => integer()
+        }
   def read_dictionaries(language) do
     filename = find_filename(language)
     read_word_file(filename)

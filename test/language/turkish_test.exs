@@ -49,8 +49,7 @@ defmodule TurkishTest do
     assert Afinn.score_to_words(text, :tr) == :negative
 
     # Realistic negative review
-    text =
-      "kötü ürün. berbat hizmet ve kötü kalite. iyi değil. kötü deneyim. tavsiye etmem."
+    text = "kötü ürün. berbat hizmet ve kötü kalite. iyi değil. kötü deneyim. tavsiye etmem."
 
     assert Afinn.score(text, :tr) < 0
     assert Afinn.score_to_words(text, :tr) == :negative

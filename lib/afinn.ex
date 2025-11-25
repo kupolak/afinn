@@ -100,7 +100,8 @@ defmodule Afinn do
       iex> Afinn.score_to_words("This is okay", :en)
       :neutral
   """
-  @spec score_to_words(String.t(), :en | :dk | :fi | :fr | :pl | :sv | :tr | :emoticon) :: :positive | :negative | :neutral
+  @spec score_to_words(String.t(), :en | :dk | :fi | :fr | :pl | :sv | :tr | :emoticon) ::
+          :positive | :negative | :neutral
   def score_to_words(text, language) do
     score = score(text, language)
 
