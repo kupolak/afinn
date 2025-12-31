@@ -1,4 +1,4 @@
-Copyright (c) Jakub Polak
+Copyright (c) 2026 Jakub Polak
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
